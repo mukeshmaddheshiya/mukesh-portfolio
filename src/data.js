@@ -91,7 +91,7 @@ export const projects = [
     color: 'teal',
     badge: 'Live',
     name: 'ToolsArena — Free Online Tools',
-    desc: '35+ free browser-based tools platform for image editing, PDF operations, text utilities, calculators, and developer tools. 100% private — no signup, no uploads.',
+    desc: '65+ free browser-based tools platform for image editing, PDF operations, text utilities, calculators, and developer tools. 100% private — no signup, no uploads.',
     tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     link: 'https://toolsarena.vercel.app/',
     features: [

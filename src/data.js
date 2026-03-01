@@ -93,7 +93,7 @@ export const projects = [
     name: 'ToolsArena — Free Online Tools',
     desc: '65+ free browser-based tools platform for image editing, PDF operations, text utilities, calculators, and developer tools. 100% private — no signup, no uploads.',
     tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
-    link: 'https://toolsarena.vercel.app/',
+    link: 'https://toolsarena.in/',
     features: [
       'Image tools: compress, resize, convert, crop & watermark',
       'PDF tools: merge, split, compress & convert to images',

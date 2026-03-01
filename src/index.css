@@ -821,6 +821,30 @@ section { position: relative; z-index: 1; }
   margin-top: 36px;
 }
 
+/* Live link button on project card */
+.project-live-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 50px;
+  border: 1px solid rgba(46, 196, 182, 0.25);
+  background: rgba(46, 196, 182, 0.08);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.3px;
+}
+
+.project-live-link:hover {
+  background: rgba(46, 196, 182, 0.18);
+  border-color: var(--teal);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(46, 196, 182, 0.2);
+}
+
 .projects-show-btn {
   display: inline-flex;
   align-items: center;

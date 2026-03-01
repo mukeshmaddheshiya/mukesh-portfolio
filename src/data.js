@@ -87,6 +87,22 @@ export const experience = [
 
 export const projects = [
   {
+    emoji: '⚡',
+    color: 'teal',
+    badge: 'Live',
+    name: 'ToolsArena — Free Online Tools',
+    desc: '35+ free browser-based tools platform for image editing, PDF operations, text utilities, calculators, and developer tools. 100% private — no signup, no uploads.',
+    tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+    link: 'https://toolsarena.vercel.app/',
+    features: [
+      'Image tools: compress, resize, convert, crop & watermark',
+      'PDF tools: merge, split, compress & convert to images',
+      'Text tools: word counter, case converter, Lorem generator',
+      'Developer tools: JSON formatter, regex tester, color picker',
+      'All processing in-browser — zero server uploads, full privacy',
+    ],
+  },
+  {
     emoji: '🛒',
     color: 'coral',
     badge: 'Live',

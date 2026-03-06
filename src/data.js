@@ -56,7 +56,7 @@ export const experience = [
   {
     date: 'May 2025 — Present',
     role: 'Software Engineer',
-    company: 'Jamtech · Lucknow, India',
+    company: 'Jamtech Technologies· Lucknow, India',
     points: [
       'Leading development of scalable web applications using Laravel',
       'Collaborating on UI/UX improvements to enhance performance & user experience',
@@ -91,7 +91,7 @@ export const projects = [
     color: 'teal',
     badge: 'Live',
     name: 'ToolsArena — Free Online Tools',
-    desc: '65+ free browser-based tools platform for image editing, PDF operations, text utilities, calculators, and developer tools. 100% private — no signup, no uploads.',
+    desc: '135+ free browser-based tools platform for image editing, PDF operations, text utilities, calculators, and developer tools. 100% private — no signup, no uploads.',
     tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     link: 'https://toolsarena.in/',
     features: [

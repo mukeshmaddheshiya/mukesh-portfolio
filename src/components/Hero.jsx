@@ -1,5 +1,54 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { typewriterPhrases } from '../data'
+
+function MagneticButton({ href, className, children, style }) {
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el || 'ontouchstart' in window) return
+
+    const handleMove = (e) => {
+      const rect = el.getBoundingClientRect()
+      const x = e.clientX - rect.left - rect.width / 2
+      const y = e.clientY - rect.top - rect.height / 2
+      el.style.transform = `translate(${x * 0.3}px, ${y * 0.4}px)`
+    }
+
+    const handleLeave = () => {
+      el.style.transform = ''
+    }
+
+    el.addEventListener('mousemove', handleMove)
+    el.addEventListener('mouseleave', handleLeave)
+    return () => {
+      el.removeEventListener('mousemove', handleMove)
+      el.removeEventListener('mouseleave', handleLeave)
+    }
+  }, [])
+
+  return (
+    <a href={href} className={className} ref={ref} style={style}>
+      {children}
+    </a>
+  )
+}
+
+function StaggeredText({ text, className, delay = 0 }) {
+  return (
+    <span className={className} aria-label={text}>
+      {text.split('').map((char, i) => (
+        <span
+          key={i}
+          className="stagger-letter"
+          style={{ animationDelay: `${delay + i * 0.04}s` }}
+        >
+          {char === ' ' ? '\u00A0' : char}
+        </span>
+      ))}
+    </span>
+  )
+}
 
 export default function Hero() {
   const [text, setText] = useState('')
@@ -34,6 +83,9 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero">
+      {/* Aurora gradient background */}
+      <div className="hero-aurora" />
+
       <div className="hero-photo-wrapper">
         <img src="/files/me.png" alt="Mukesh Maddheshiya — Freelance Full-Stack Developer & AI Specialist in Lucknow, India" className="hero-photo" width="160" height="160" loading="eager" />
         <div className="hero-photo-ring" />
@@ -48,9 +100,9 @@ export default function Hero() {
       <p className="hero-greeting">Hey there, I'm</p>
 
       <h1 className="hero-name">
-        <span className="hero-name-gradient">Mukesh</span>
+        <StaggeredText text="Mukesh" className="hero-name-gradient" delay={0.6} />
         <br />
-        Maddheshiya
+        <StaggeredText text="Maddheshiya" className="hero-name-last" delay={0.9} />
       </h1>
 
       <p className="hero-subtitle">
@@ -63,12 +115,12 @@ export default function Hero() {
       </div>
 
       <div className="hero-cta-group">
-        <a href="#contact" className="btn btn-primary">
+        <MagneticButton href="#contact" className="btn btn-primary magnetic-btn">
           <span className="btn-icon">💬</span> Hire Me
-        </a>
-        <a href="#projects" className="btn btn-outline">
+        </MagneticButton>
+        <MagneticButton href="#projects" className="btn btn-outline magnetic-btn">
           <span className="btn-icon">🚀</span> View Work
-        </a>
+        </MagneticButton>
       </div>
 
       <div className="hero-scroll-hint">

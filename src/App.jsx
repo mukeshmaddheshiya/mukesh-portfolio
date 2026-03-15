@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, useCallback } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TechMarquee from './components/TechMarquee'
@@ -13,12 +13,61 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
+  const [loading, setLoading] = useState(true)
   const [backToTopVisible, setBackToTopVisible] = useState(false)
+  const [scrollProgress, setScrollProgress] = useState(0)
   const cursorDot = useRef(null)
   const cursorRing = useRef(null)
 
-  // Custom cursor
+  // ── Preloader ──
   useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2200)
+    return () => clearTimeout(timer)
+  }, [])
+
+  // ── 3D Tilt on cards ──
+  const initTilt = useCallback(() => {
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    if (isTouchDevice) return
+
+    const tiltCards = document.querySelectorAll('.project-card, .service-card, .stat-card')
+    tiltCards.forEach((card) => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect()
+        const x = e.clientX - rect.left
+        const y = e.clientY - rect.top
+        const centerX = rect.width / 2
+        const centerY = rect.height / 2
+        const rotateX = ((y - centerY) / centerY) * -8
+        const rotateY = ((x - centerX) / centerX) * 8
+        card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`
+      })
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = ''
+      })
+    })
+  }, [])
+
+  useEffect(() => {
+    if (!loading) {
+      const timer = setTimeout(initTilt, 500)
+      return () => clearTimeout(timer)
+    }
+  }, [loading, initTilt])
+
+  // Re-init tilt when DOM changes (View All projects)
+  useEffect(() => {
+    if (loading) return
+    const observer = new MutationObserver(() => {
+      setTimeout(initTilt, 100)
+    })
+    observer.observe(document.body, { childList: true, subtree: true })
+    return () => observer.disconnect()
+  }, [loading, initTilt])
+
+  // ── Custom cursor ──
+  useEffect(() => {
+    if (loading) return
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
     if (isTouchDevice) return
 
@@ -69,73 +118,53 @@ export default function App() {
     document.addEventListener('mouseup', handleMouseUp)
     animateRing()
 
-    const interactiveEls = document.querySelectorAll('a, button, .skill-tag, .project-card, .contact-card, .service-card, .testimonial-dot, .cert-card, .stat-card, .hamburger')
-    interactiveEls.forEach((el) => {
-      el.addEventListener('mouseenter', handleHoverIn)
-      el.addEventListener('mouseleave', handleHoverOut)
-    })
+    const attachHovers = () => {
+      document.querySelectorAll('a, button, .skill-tag, .project-card, .contact-card, .service-card, .testimonial-dot, .cert-card, .stat-card, .hamburger').forEach((el) => {
+        el.addEventListener('mouseenter', handleHoverIn)
+        el.addEventListener('mouseleave', handleHoverOut)
+      })
+    }
+    attachHovers()
+
+    const mutObs = new MutationObserver(attachHovers)
+    mutObs.observe(document.body, { childList: true, subtree: true })
 
     return () => {
       document.removeEventListener('mousemove', moveCursor)
       document.removeEventListener('mousedown', handleMouseDown)
       document.removeEventListener('mouseup', handleMouseUp)
-      interactiveEls.forEach((el) => {
-        el.removeEventListener('mouseenter', handleHoverIn)
-        el.removeEventListener('mouseleave', handleHoverOut)
-      })
+      mutObs.disconnect()
     }
+  }, [loading])
+
+  // ── Scroll progress bar ──
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      setScrollProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0)
+      setBackToTopVisible(scrollTop > 400)
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Re-attach hover listeners when new elements appear (e.g. "View All" projects)
+  // ── Scroll reveal ──
   useEffect(() => {
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
-    if (isTouchDevice) return
-
-    const observer = new MutationObserver(() => {
-      const handleHoverIn = () => {
-        cursorDot.current?.classList.add('hover')
-        cursorRing.current?.classList.add('hover')
-      }
-      const handleHoverOut = () => {
-        cursorDot.current?.classList.remove('hover')
-        cursorRing.current?.classList.remove('hover')
-      }
-      document.querySelectorAll('a, button, .project-card, .service-card, .contact-card, .skill-tag').forEach((el) => {
-        el.removeEventListener('mouseenter', handleHoverIn)
-        el.removeEventListener('mouseleave', handleHoverOut)
-        el.addEventListener('mouseenter', handleHoverIn)
-        el.addEventListener('mouseleave', handleHoverOut)
-      })
-    })
-    observer.observe(document.body, { childList: true, subtree: true })
-    return () => observer.disconnect()
-  }, [])
-
-  // Scroll reveal
-  useEffect(() => {
+    if (loading) return
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible')
         })
       },
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     )
-
     document.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
     return () => observer.disconnect()
-  }, [])
+  }, [loading])
 
-  // Back to top
-  useEffect(() => {
-    const handleScroll = () => setBackToTopVisible(window.scrollY > 400)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Parallax floating shapes
+  // ── Parallax floating shapes ──
   useEffect(() => {
     const shapes = document.getElementById('floatingShapes')
     if (!shapes) return
@@ -155,15 +184,42 @@ export default function App() {
 
     document.addEventListener('mousemove', handleMouseMove)
     document.addEventListener('touchmove', handleTouchMove, { passive: true })
-
     return () => {
       document.removeEventListener('mousemove', handleMouseMove)
       document.removeEventListener('touchmove', handleTouchMove)
     }
   }, [])
 
+  // ── Preloader screen ──
+  if (loading) {
+    return (
+      <div className="preloader">
+        <div className="preloader-inner">
+          <svg className="preloader-logo" width="60" height="60" viewBox="0 0 34 34" fill="none">
+            <defs>
+              <linearGradient id="plGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#FF6B6B" />
+                <stop offset="100%" stopColor="#2EC4B6" />
+              </linearGradient>
+            </defs>
+            <rect width="34" height="34" rx="10" fill="url(#plGrad)" />
+            <path d="M8 24V10h2.2l4.3 7.2 4.3-7.2H21V24h-2.2V14.4L14.5 21h-.4l-3.9-6.6V24H8Z" fill="white" />
+            <circle cx="26" cy="24" r="2.5" fill="white" fillOpacity="0.9" />
+          </svg>
+          <div className="preloader-bar">
+            <div className="preloader-bar-fill" />
+          </div>
+          <p className="preloader-text">Loading experience...</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <>
+      {/* Scroll progress bar */}
+      <div className="scroll-progress-bar" style={{ width: `${scrollProgress}%` }} />
+
       {/* Custom cursor */}
       <div className="cursor-dot" ref={cursorDot} />
       <div className="cursor-ring" ref={cursorRing} />

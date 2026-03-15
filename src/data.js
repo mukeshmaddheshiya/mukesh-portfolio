@@ -12,7 +12,7 @@ export const stats = [
   { count: 3, label: 'Years Exp.' },
   { count: 40, label: 'Projects' },
   { count: 20, label: 'Happy Clients' },
-  { count: 135, label: 'Tools Built' },
+  { count: 245, label: 'Tools Built' },
 ]
 
 export const services = [
@@ -132,7 +132,7 @@ export const projects = [
     color: 'teal',
     badge: 'Live',
     name: 'ToolsArena — Free Online Tools',
-    desc: '135+ free browser-based tools platform for image editing, PDF operations, text utilities, calculators, and developer tools. 100% private — no signup, no uploads.',
+    desc: '245+ free browser-based tools platform for image editing, PDF operations, text utilities, calculators, and developer tools. 100% private — no signup, no uploads.',
     tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     link: 'https://toolsarena.in/',
     features: [

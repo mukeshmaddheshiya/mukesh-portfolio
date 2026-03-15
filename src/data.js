@@ -371,7 +371,7 @@ export const education = [
   {
     year: '2022',
     degree: 'Bachelor of Computer Applications (BCA)',
-    institution: 'University of Lucknow',
+    institution: 'Axis Colleges, Kanpur University',
     desc: 'Focused on software engineering, data structures, algorithms, and web technologies.',
     color: 'coral',
   },

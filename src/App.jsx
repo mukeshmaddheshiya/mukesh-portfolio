@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import TechMarquee from './components/TechMarquee'
@@ -14,7 +14,104 @@ import Footer from './components/Footer'
 
 export default function App() {
   const [backToTopVisible, setBackToTopVisible] = useState(false)
+  const cursorDot = useRef(null)
+  const cursorRing = useRef(null)
 
+  // Custom cursor
+  useEffect(() => {
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    if (isTouchDevice) return
+
+    document.body.classList.add('custom-cursor-active')
+
+    let mouseX = 0, mouseY = 0
+    let ringX = 0, ringY = 0
+
+    const moveCursor = (e) => {
+      mouseX = e.clientX
+      mouseY = e.clientY
+      if (cursorDot.current) {
+        cursorDot.current.style.transform = `translate(${mouseX}px, ${mouseY}px)`
+      }
+    }
+
+    const animateRing = () => {
+      ringX += (mouseX - ringX) * 0.15
+      ringY += (mouseY - ringY) * 0.15
+      if (cursorRing.current) {
+        cursorRing.current.style.transform = `translate(${ringX}px, ${ringY}px)`
+      }
+      requestAnimationFrame(animateRing)
+    }
+
+    const handleHoverIn = () => {
+      cursorDot.current?.classList.add('hover')
+      cursorRing.current?.classList.add('hover')
+    }
+
+    const handleHoverOut = () => {
+      cursorDot.current?.classList.remove('hover')
+      cursorRing.current?.classList.remove('hover')
+    }
+
+    const handleMouseDown = () => {
+      cursorDot.current?.classList.add('click')
+      cursorRing.current?.classList.add('click')
+    }
+
+    const handleMouseUp = () => {
+      cursorDot.current?.classList.remove('click')
+      cursorRing.current?.classList.remove('click')
+    }
+
+    document.addEventListener('mousemove', moveCursor)
+    document.addEventListener('mousedown', handleMouseDown)
+    document.addEventListener('mouseup', handleMouseUp)
+    animateRing()
+
+    const interactiveEls = document.querySelectorAll('a, button, .skill-tag, .project-card, .contact-card, .service-card, .testimonial-dot, .cert-card, .stat-card, .hamburger')
+    interactiveEls.forEach((el) => {
+      el.addEventListener('mouseenter', handleHoverIn)
+      el.addEventListener('mouseleave', handleHoverOut)
+    })
+
+    return () => {
+      document.removeEventListener('mousemove', moveCursor)
+      document.removeEventListener('mousedown', handleMouseDown)
+      document.removeEventListener('mouseup', handleMouseUp)
+      interactiveEls.forEach((el) => {
+        el.removeEventListener('mouseenter', handleHoverIn)
+        el.removeEventListener('mouseleave', handleHoverOut)
+      })
+    }
+  }, [])
+
+  // Re-attach hover listeners when new elements appear (e.g. "View All" projects)
+  useEffect(() => {
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    if (isTouchDevice) return
+
+    const observer = new MutationObserver(() => {
+      const handleHoverIn = () => {
+        cursorDot.current?.classList.add('hover')
+        cursorRing.current?.classList.add('hover')
+      }
+      const handleHoverOut = () => {
+        cursorDot.current?.classList.remove('hover')
+        cursorRing.current?.classList.remove('hover')
+      }
+      document.querySelectorAll('a, button, .project-card, .service-card, .contact-card, .skill-tag').forEach((el) => {
+        el.removeEventListener('mouseenter', handleHoverIn)
+        el.removeEventListener('mouseleave', handleHoverOut)
+        el.addEventListener('mouseenter', handleHoverIn)
+        el.addEventListener('mouseleave', handleHoverOut)
+      })
+    })
+    observer.observe(document.body, { childList: true, subtree: true })
+    return () => observer.disconnect()
+  }, [])
+
+  // Scroll reveal
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -31,12 +128,14 @@ export default function App() {
     return () => observer.disconnect()
   }, [])
 
+  // Back to top
   useEffect(() => {
     const handleScroll = () => setBackToTopVisible(window.scrollY > 400)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Parallax floating shapes
   useEffect(() => {
     const shapes = document.getElementById('floatingShapes')
     if (!shapes) return
@@ -65,6 +164,10 @@ export default function App() {
 
   return (
     <>
+      {/* Custom cursor */}
+      <div className="cursor-dot" ref={cursorDot} />
+      <div className="cursor-ring" ref={cursorRing} />
+
       <div className="grain-overlay" />
       <div className="floating-shapes" id="floatingShapes">
         <div className="shape shape-1" />

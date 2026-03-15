@@ -1,11 +1,11 @@
 export const typewriterPhrases = [
-  'Full-Stack Developer',
-  'AI/ML Enthusiast',
-  'SaaS Builder',
-  'Laravel Expert',
-  'React & Next.js Developer',
+  'Freelance Full-Stack Developer',
+  'Laravel Developer in Lucknow',
+  'Hire React Developer India',
   'AI Integration Specialist',
-  'Open Source Contributor',
+  'SaaS & E-Commerce Builder',
+  'Next.js & TypeScript Expert',
+  'Available for Freelance Work',
 ]
 
 export const stats = [

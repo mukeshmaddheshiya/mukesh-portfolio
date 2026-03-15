@@ -5,12 +5,12 @@ export default function Services() {
     <section id="services">
       <div className="section-inner">
         <div className="reveal">
-          <p className="section-label">What I Do</p>
+          <p className="section-label">Hire Me For</p>
           <h2 className="section-title">
-            Services I <span>Offer</span>
+            Freelance Development <span>Services</span>
           </h2>
           <p className="section-desc">
-            From idea to deployment — I build complete digital solutions that drive results.
+            Hire a freelance full-stack developer in Lucknow for end-to-end web development, AI integration, and SaaS solutions.
           </p>
           <div className="section-divider" />
         </div>

@@ -48,7 +48,7 @@ export default function About() {
         <div className="reveal">
           <p className="section-label">About Me</p>
           <h2 className="section-title">
-            Turning Ideas Into <span>Digital Reality</span>
+            Freelance Full-Stack Developer <span>in Lucknow</span>
           </h2>
           <div className="section-divider" />
         </div>
@@ -56,22 +56,24 @@ export default function About() {
         <div className="about-content">
           <div>
             <p className="about-text reveal reveal-delay-1">
-              I'm <strong>Mukesh Maddheshiya</strong>, a passionate Software Engineer based in
+              I'm <strong>Mukesh Maddheshiya</strong>, a <strong>freelance full-stack developer</strong> based in
               Lucknow, India, with <strong>3+ years</strong> of hands-on experience building web
-              applications that people love to use.
+              applications that people love to use. Looking to{' '}
+              <strong>hire a React developer in India</strong>? You're in the right place.
             </p>
             <p className="about-text reveal reveal-delay-2">
-              My expertise spans across <strong>PHP, Laravel, WordPress, React, Vue.js</strong>, and
+              As a <strong>Laravel developer in Lucknow</strong>, my expertise spans across{' '}
+              <strong>PHP, Laravel, React, Vue.js, Next.js</strong>, and
               modern JavaScript ecosystems. I thrive at the intersection of{' '}
               <strong>clean backend architecture</strong> and{' '}
-              <strong>pixel-perfect frontends</strong>, with a growing passion for{' '}
+              <strong>pixel-perfect frontends</strong>, with deep expertise in{' '}
               <strong>AI integration</strong> and <strong>automation</strong>.
             </p>
             <p className="about-text reveal reveal-delay-3">
               Whether it's crafting a robust REST API, integrating payment gateways, or building
-              AI-powered features with the <strong>ChatGPT API</strong>, I bring creativity and
-              precision to every line of code. Currently at <strong>Jamtech, Lucknow</strong>,
-              leading web development and driving UI/UX improvements.
+              AI-powered features as an <strong>AI integration developer in India</strong>, I bring creativity and
+              precision to every line of code. Currently at <strong>Jamtech Technologies, Lucknow</strong>,
+              and available for <strong>freelance projects worldwide</strong>.
             </p>
           </div>
 

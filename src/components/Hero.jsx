@@ -35,14 +35,14 @@ export default function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="hero-photo-wrapper">
-        <img src="/files/me.png" alt="Mukesh Maddheshiya — Full-Stack Developer & AI Specialist based in Lucknow, India" className="hero-photo" width="170" height="170" loading="eager" />
+        <img src="/files/me.png" alt="Mukesh Maddheshiya — Freelance Full-Stack Developer & AI Specialist in Lucknow, India" className="hero-photo" width="170" height="170" loading="eager" />
         <div className="hero-photo-ring" />
         <div className="hero-photo-dot" />
       </div>
 
       <div className="hero-badge">
         <span className="hero-badge-dot" />
-        Available for opportunities
+        Available for Freelance & Hire
       </div>
 
       <p className="hero-greeting">Hey there, I'm</p>
@@ -53,6 +53,10 @@ export default function Hero() {
         Maddheshiya
       </h1>
 
+      <p className="hero-subtitle">
+        Freelance Full-Stack Developer & AI Specialist — Lucknow, India
+      </p>
+
       <div className="hero-typewriter">
         <span>{text}</span>
         <span className="typewriter-cursor" />
@@ -60,7 +64,7 @@ export default function Hero() {
 
       <div className="hero-cta-group">
         <a href="#contact" className="btn btn-primary">
-          <span className="btn-icon">💬</span> Let's Talk
+          <span className="btn-icon">💬</span> Hire Me
         </a>
         <a href="#projects" className="btn btn-outline">
           <span className="btn-icon">🚀</span> View Work

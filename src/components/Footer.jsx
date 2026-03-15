@@ -5,6 +5,9 @@ export default function Footer() {
       <p className="footer-text">
         Designed & Built with <span>♥</span> by Mukesh Maddheshiya © 2025 — 2026
       </p>
+      <p className="footer-location">
+        Freelance Full-Stack Developer & AI Specialist — Lucknow, India
+      </p>
       <div className="footer-social">
         <a
           href="https://github.com/mukeshmaddheshiya"

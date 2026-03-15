@@ -285,15 +285,17 @@ body {
 }
 
 .hero-photo {
-  width: 119px;
-  height: 146px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center top;
   border: 3px solid transparent;
   background: linear-gradient(var(--bg-dark), var(--bg-dark)) padding-box,
     var(--gradient-coral-teal) border-box;
   position: relative;
   z-index: 2;
+  aspect-ratio: 1 / 1;
 }
 
 .hero-photo-ring {
@@ -1391,7 +1393,7 @@ section { position: relative; z-index: 1; }
   .hamburger { display: none; }
 
   .hero { padding: 120px 40px 80px; }
-  .hero-photo { width: 170px; height: 170px; }
+  .hero-photo { width: 160px; height: 160px; }
   .hero-cta-group { flex-direction: row; max-width: none; justify-content: center; }
 
   .about-stats { grid-template-columns: repeat(4, 1fr); gap: 20px; }

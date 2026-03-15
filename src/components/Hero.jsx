@@ -35,7 +35,7 @@ export default function Hero() {
   return (
     <section className="hero" id="hero">
       <div className="hero-photo-wrapper">
-        <img src="/files/me.png" alt="Mukesh Maddheshiya — Freelance Full-Stack Developer & AI Specialist in Lucknow, India" className="hero-photo" width="170" height="170" loading="eager" />
+        <img src="/files/me.png" alt="Mukesh Maddheshiya — Freelance Full-Stack Developer & AI Specialist in Lucknow, India" className="hero-photo" width="160" height="160" loading="eager" />
         <div className="hero-photo-ring" />
         <div className="hero-photo-dot" />
       </div>

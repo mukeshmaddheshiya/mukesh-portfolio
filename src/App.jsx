@@ -21,7 +21,7 @@ export default function App() {
 
   // ── Preloader ──
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2200)
+    const timer = setTimeout(() => setLoading(false), 1200)
     return () => clearTimeout(timer)
   }, [])
 
@@ -85,8 +85,8 @@ export default function App() {
     }
 
     const animateRing = () => {
-      ringX += (mouseX - ringX) * 0.15
-      ringY += (mouseY - ringY) * 0.15
+      ringX += (mouseX - ringX) * 0.35
+      ringY += (mouseY - ringY) * 0.35
       if (cursorRing.current) {
         cursorRing.current.style.transform = `translate(${ringX}px, ${ringY}px)`
       }

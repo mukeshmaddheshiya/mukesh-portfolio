@@ -41,7 +41,7 @@ function StaggeredText({ text, className, delay = 0 }) {
         <span
           key={i}
           className="stagger-letter"
-          style={{ animationDelay: `${delay + i * 0.04}s` }}
+          style={{ animationDelay: `${delay + i * 0.03}s` }}
         >
           {char === ' ' ? '\u00A0' : char}
         </span>
@@ -100,9 +100,9 @@ export default function Hero() {
       <p className="hero-greeting">Hey there, I'm</p>
 
       <h1 className="hero-name">
-        <StaggeredText text="Mukesh" className="hero-name-gradient" delay={0.6} />
+        <StaggeredText text="Mukesh" className="hero-name-gradient" delay={0.25} />
         <br />
-        <StaggeredText text="Maddheshiya" className="hero-name-last" delay={0.9} />
+        <StaggeredText text="Maddheshiya" className="hero-name-last" delay={0.45} />
       </h1>
 
       <p className="hero-subtitle">

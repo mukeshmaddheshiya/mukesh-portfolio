@@ -68,7 +68,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: preloaderFadeOut 0.6s ease-in-out 1.8s forwards;
+  animation: preloaderFadeOut 0.4s ease-in-out 1s forwards;
 }
 
 .preloader-inner {
@@ -80,13 +80,13 @@ body {
 }
 
 .preloader-logo {
-  animation: preloaderSpin 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: preloaderSpin 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
   filter: drop-shadow(0 0 30px rgba(255, 107, 107, 0.4));
 }
 
 @keyframes preloaderSpin {
-  0% { transform: scale(0.3) rotate(-180deg); opacity: 0; }
-  50% { transform: scale(1.15) rotate(10deg); opacity: 1; }
+  0% { transform: scale(0.3) rotate(-90deg); opacity: 0; }
+  60% { transform: scale(1.1) rotate(5deg); opacity: 1; }
   100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 
@@ -108,13 +108,12 @@ body {
   height: 100%;
   background: var(--gradient-coral-teal);
   border-radius: 3px;
-  animation: preloaderBarFill 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: preloaderBarFill 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @keyframes preloaderBarFill {
   0% { width: 0%; }
-  30% { width: 40%; }
-  60% { width: 70%; }
+  40% { width: 60%; }
   100% { width: 100%; }
 }
 
@@ -124,7 +123,7 @@ body {
   color: var(--text-muted);
   letter-spacing: 2px;
   text-transform: uppercase;
-  animation: fadeInUp 0.8s ease 0.3s both;
+  animation: fadeInUp 0.5s ease 0.2s both;
 }
 
 @keyframes preloaderFadeOut {
@@ -176,28 +175,29 @@ body {
   pointer-events: none;
   z-index: 99999;
   will-change: transform;
-  transition: width 0.3s, height 0.3s, background 0.3s, top 0.3s, left 0.3s, opacity 0.3s;
+  transform: translateZ(0);
+  transition: width 0.2s, height 0.2s, background 0.2s, top 0.2s, left 0.2s;
   mix-blend-mode: difference;
 }
 
 .cursor-ring {
   position: fixed;
-  top: -20px;
-  left: -20px;
-  width: 40px;
-  height: 40px;
+  top: -18px;
+  left: -18px;
+  width: 36px;
+  height: 36px;
   border: 1.5px solid rgba(46, 196, 182, 0.5);
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;
   will-change: transform;
-  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              top 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.3s,
-              background 0.3s,
-              opacity 0.3s;
+  transform: translateZ(0);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              top 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              left 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.2s,
+              background 0.2s;
 }
 
 /* Hover state — ring expands, dot scales up */
@@ -211,10 +211,10 @@ body {
 }
 
 .cursor-ring.hover {
-  width: 60px;
-  height: 60px;
-  top: -30px;
-  left: -30px;
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: -25px;
   border-color: rgba(255, 107, 107, 0.4);
   background: rgba(255, 107, 107, 0.05);
 }
@@ -463,47 +463,32 @@ body {
   overflow: hidden;
 }
 
-/* ── Aurora animated gradient ── */
+/* ── Aurora animated gradient (GPU-accelerated) ── */
 .hero-aurora {
   position: absolute;
-  inset: 0;
+  inset: -50px;
   z-index: -1;
-  opacity: 0.12;
+  opacity: 0.15;
   background:
     radial-gradient(ellipse 80% 50% at 20% 40%, var(--coral) 0%, transparent 70%),
     radial-gradient(ellipse 60% 60% at 80% 20%, var(--teal) 0%, transparent 70%),
     radial-gradient(ellipse 70% 50% at 50% 80%, var(--purple-light) 0%, transparent 70%);
-  animation: auroraShift 12s ease-in-out infinite alternate;
-  filter: blur(60px);
+  animation: auroraShift 15s ease-in-out infinite alternate;
+  filter: blur(40px);
+  will-change: transform;
+  pointer-events: none;
 }
 
 @keyframes auroraShift {
-  0% {
-    background:
-      radial-gradient(ellipse 80% 50% at 20% 40%, var(--coral) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 60% at 80% 20%, var(--teal) 0%, transparent 70%),
-      radial-gradient(ellipse 70% 50% at 50% 80%, var(--purple-light) 0%, transparent 70%);
-    transform: scale(1) rotate(0deg);
-  }
-  33% {
-    transform: scale(1.1) rotate(2deg);
-  }
-  66% {
-    transform: scale(0.95) rotate(-1deg);
-  }
-  100% {
-    background:
-      radial-gradient(ellipse 70% 60% at 70% 60%, var(--teal) 0%, transparent 70%),
-      radial-gradient(ellipse 80% 50% at 20% 80%, var(--purple-light) 0%, transparent 70%),
-      radial-gradient(ellipse 60% 50% at 60% 10%, var(--coral) 0%, transparent 70%);
-    transform: scale(1.05) rotate(1deg);
-  }
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.08) translate(20px, -10px); }
+  100% { transform: scale(0.98) translate(-15px, 10px); }
 }
 
 .hero-photo-wrapper {
   position: relative;
   margin-bottom: 28px;
-  animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+  animation: fadeInDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
 }
 
 .hero-photo {
@@ -561,7 +546,7 @@ body {
   font-weight: 500;
   color: var(--teal);
   margin-bottom: 20px;
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
 }
 
 .hero-badge-dot {
@@ -578,7 +563,7 @@ body {
   color: var(--coral);
   font-weight: 500;
   margin-bottom: 8px;
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 .hero-name {
@@ -587,7 +572,7 @@ body {
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 12px;
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
 }
 
 .hero-name-gradient {
@@ -606,8 +591,9 @@ body {
 .stagger-letter {
   display: inline-block;
   opacity: 0;
-  transform: translateY(40px) rotateX(40deg);
-  animation: staggerIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translateY(30px) rotateX(30deg);
+  animation: staggerIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
 }
 
 @keyframes staggerIn {
@@ -631,7 +617,7 @@ body {
   font-weight: 500;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.65s both;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
 .hero-typewriter {
@@ -640,7 +626,7 @@ body {
   color: var(--text-secondary);
   min-height: 1.6em;
   margin-bottom: 24px;
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.35s both;
 }
 
 .typewriter-cursor {
@@ -661,7 +647,7 @@ body {
   gap: 12px;
   width: 100%;
   max-width: 320px;
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
 }
 
 .btn {
@@ -713,7 +699,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s both;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
 }
 
 .scroll-line {

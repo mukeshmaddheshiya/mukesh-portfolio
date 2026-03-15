@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mukeshmaddheshiya.vercel.app/sitemap.xml
+Sitemap: https://mukeshfolio.vercel.app/sitemap.xml

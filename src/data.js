@@ -9,7 +9,7 @@ export const typewriterPhrases = [
 ]
 
 export const stats = [
-  { count: 3, label: 'Years Exp.' },
+  { count: 4, label: 'Years Exp.' },
   { count: 40, label: 'Projects' },
   { count: 20, label: 'Happy Clients' },
   { count: 245, label: 'Tools Built' },

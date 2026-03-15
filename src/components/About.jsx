@@ -57,7 +57,7 @@ export default function About() {
           <div>
             <p className="about-text reveal reveal-delay-1">
               I'm <strong>Mukesh Maddheshiya</strong>, a <strong>freelance full-stack developer</strong> based in
-              Lucknow, India, with <strong>3+ years</strong> of hands-on experience building web
+              Lucknow, India, with <strong>4+ years</strong> of hands-on experience building web
               applications that people love to use. Looking to{' '}
               <strong>hire a React developer in India</strong>? You're in the right place.
             </p>

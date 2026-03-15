@@ -3,11 +3,11 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-line" />
       <p className="footer-text">
-        Designed & Built with <span>♥</span> by Mukesh Maddheshiya © 2025
+        Designed & Built with <span>♥</span> by Mukesh Maddheshiya © 2025 — 2026
       </p>
       <div className="footer-social">
         <a
-          href="https://github.com/"
+          href="https://github.com/mukeshmaddheshiya"
           target="_blank"
           rel="noopener noreferrer"
           className="social-link"

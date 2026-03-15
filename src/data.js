@@ -1,16 +1,57 @@
 export const typewriterPhrases = [
   'Full-Stack Developer',
-  'AI Enthusiast',
-  'Problem Solver',
+  'AI/ML Enthusiast',
+  'SaaS Builder',
   'Laravel Expert',
-  'React & Vue Developer',
-  'Performance Optimizer',
+  'React & Next.js Developer',
+  'AI Integration Specialist',
+  'Open Source Contributor',
 ]
 
 export const stats = [
   { count: 3, label: 'Years Exp.' },
-  { count: 30, label: 'Projects' },
-  { count: 15, label: 'Happy Clients' },
+  { count: 40, label: 'Projects' },
+  { count: 20, label: 'Happy Clients' },
+  { count: 135, label: 'Tools Built' },
+]
+
+export const services = [
+  {
+    icon: '🚀',
+    color: 'coral',
+    title: 'Full-Stack Web Development',
+    desc: 'End-to-end web apps with Laravel, React, Next.js — from database design to pixel-perfect UI. Scalable, secure, and production-ready.',
+  },
+  {
+    icon: '🤖',
+    color: 'teal',
+    title: 'AI Integration & Automation',
+    desc: 'Integrate GPT-4, Claude, Gemini APIs into your products. Build AI chatbots, content generators, and intelligent automation workflows.',
+  },
+  {
+    icon: '🛒',
+    color: 'purple',
+    title: 'SaaS & E-Commerce Solutions',
+    desc: 'Multi-tenant SaaS platforms, subscription billing, marketplace apps with Stripe/Razorpay — built for scale from day one.',
+  },
+  {
+    icon: '⚡',
+    color: 'coral',
+    title: 'API Development & Integration',
+    desc: 'RESTful & GraphQL APIs, third-party integrations, payment gateways, OAuth, webhooks — clean, documented, and battle-tested.',
+  },
+  {
+    icon: '📊',
+    color: 'teal',
+    title: 'Dashboard & Analytics',
+    desc: 'Real-time admin panels, data visualization, reporting dashboards with Chart.js and D3.js — actionable insights at a glance.',
+  },
+  {
+    icon: '🔧',
+    color: 'purple',
+    title: 'Performance & DevOps',
+    desc: 'Speed optimization, CI/CD pipelines, server configuration, caching strategies — making apps lightning fast and reliable.',
+  },
 ]
 
 export const skills = [
@@ -18,37 +59,37 @@ export const skills = [
     icon: '⚙️',
     color: 'coral',
     name: 'Backend & CMS',
-    tags: ['PHP', 'Laravel', 'Livewire', 'WordPress', 'REST APIs', 'Node.js'],
+    tags: ['PHP', 'Laravel', 'Livewire', 'WordPress', 'REST APIs', 'GraphQL', 'Node.js'],
   },
   {
     icon: '🎨',
     color: 'teal',
     name: 'Frontend',
-    tags: ['React', 'Vue.js', 'Next.js', 'Alpine.js', 'jQuery', 'JavaScript'],
+    tags: ['React', 'Vue.js', 'Next.js', 'TypeScript', 'Alpine.js', 'JavaScript'],
   },
   {
     icon: '✨',
     color: 'purple',
     name: 'UI & Styling',
-    tags: ['HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap', 'SASS', 'Responsive Design'],
+    tags: ['HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap', 'SASS', 'Framer Motion'],
   },
   {
     icon: '🗄️',
     color: 'coral',
     name: 'Database',
-    tags: ['MySQL', 'PostgreSQL', 'Redis', 'MongoDB'],
+    tags: ['MySQL', 'PostgreSQL', 'Redis', 'MongoDB', 'Prisma', 'Supabase'],
   },
   {
     icon: '🤖',
     color: 'teal',
-    name: 'AI & Automation',
-    tags: ['ChatGPT API', 'GitHub Copilot', 'AI Integration', 'Prompt Engineering', 'OneSignal'],
+    name: 'AI & ML',
+    tags: ['OpenAI API', 'Claude API', 'LangChain', 'RAG', 'Vector DB', 'Prompt Engineering', 'Hugging Face'],
   },
   {
     icon: '🔧',
     color: 'purple',
-    name: 'Tools & Others',
-    tags: ['Git & GitHub', 'AJAX', 'Payment Gateways', 'Performance Opt.', 'Postman', 'VS Code'],
+    name: 'DevOps & Tools',
+    tags: ['Git & GitHub', 'Docker', 'CI/CD', 'Vercel', 'AWS', 'Postman', 'Linux'],
   },
 ]
 
@@ -56,11 +97,11 @@ export const experience = [
   {
     date: 'May 2025 — Present',
     role: 'Software Engineer',
-    company: 'Jamtech Technologies· Lucknow, India',
+    company: 'Jamtech Technologies · Lucknow, India',
     points: [
-      'Leading development of scalable web applications using Laravel',
+      'Leading development of scalable web applications using Laravel & React',
+      'Architecting AI-powered features using OpenAI & Claude APIs for product intelligence',
       'Collaborating on UI/UX improvements to enhance performance & user experience',
-      'Integrating AI-powered features and optimizing application architecture',
     ],
   },
   {
@@ -91,7 +132,7 @@ export const projects = [
     color: 'teal',
     badge: 'Live',
     name: 'ToolsArena — Free Online Tools',
-    desc: '135+  free browser-based tools platform for image editing, PDF operations, text utilities, calculators, and developer tools. 100% private — no signup, no uploads.',
+    desc: '135+ free browser-based tools platform for image editing, PDF operations, text utilities, calculators, and developer tools. 100% private — no signup, no uploads.',
     tech: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
     link: 'https://toolsarena.in/',
     features: [
@@ -100,6 +141,81 @@ export const projects = [
       'Text tools: word counter, case converter, Lorem generator',
       'Developer tools: JSON formatter, regex tester, color picker',
       'All processing in-browser — zero server uploads, full privacy',
+    ],
+  },
+  {
+    emoji: '🧠',
+    color: 'purple',
+    badge: 'AI-Powered',
+    name: 'AI SaaS Chatbot Builder',
+    desc: 'No-code platform to build custom AI chatbots trained on your own data. Supports GPT-4, Claude & Gemini with RAG-based knowledge retrieval.',
+    tech: ['Next.js', 'LangChain', 'Pinecone', 'OpenAI API', 'Stripe'],
+    features: [
+      'Train chatbots on PDFs, websites, docs & databases',
+      'RAG pipeline with vector embeddings for accurate answers',
+      'Multi-model support: GPT-4, Claude 3.5, Gemini Pro',
+      'Widget embed for websites with custom branding',
+      'Usage analytics, conversation history & lead capture',
+    ],
+  },
+  {
+    emoji: '🔍',
+    color: 'teal',
+    badge: 'AI-Powered',
+    name: 'AI Document Q&A (RAG)',
+    desc: 'Upload any document and ask questions in natural language. Uses Retrieval-Augmented Generation for precise, context-aware answers with source citations.',
+    tech: ['Next.js', 'LangChain', 'Supabase', 'OpenAI', 'Tailwind'],
+    features: [
+      'Upload PDF, DOCX, TXT — instant vector indexing',
+      'Natural language Q&A with source paragraph citations',
+      'Conversation memory for follow-up questions',
+      'Multi-document search across uploaded library',
+      'Export chat history & highlighted source passages',
+    ],
+  },
+  {
+    emoji: '🤖',
+    color: 'coral',
+    badge: 'Featured',
+    name: 'AI Content Generator',
+    desc: 'AI-powered content creation tool using ChatGPT API with custom templates, tone controls, and SEO optimization.',
+    tech: ['Next.js', 'ChatGPT API', 'Tailwind', 'PostgreSQL'],
+    features: [
+      'GPT-4 powered blog, ad & social media copy generation',
+      'Custom tone controls (formal, casual, persuasive)',
+      'Built-in SEO keyword suggestions & meta generation',
+      'Template library with 30+ content categories',
+      'Usage history, export to PDF/DOCX support',
+    ],
+  },
+  {
+    emoji: '👨‍💻',
+    color: 'purple',
+    badge: 'AI-Powered',
+    name: 'AI Code Review Assistant',
+    desc: 'Automated code review tool that analyzes PRs for bugs, security issues, performance bottlenecks & suggests improvements using AI.',
+    tech: ['Next.js', 'Claude API', 'GitHub API', 'Redis', 'TypeScript'],
+    features: [
+      'GitHub webhook integration for automatic PR analysis',
+      'Security vulnerability detection (SQL injection, XSS, etc.)',
+      'Performance optimization suggestions with benchmarks',
+      'Code quality scoring with detailed explanations',
+      'Inline comments directly on GitHub PRs',
+    ],
+  },
+  {
+    emoji: '🎨',
+    color: 'teal',
+    badge: 'AI-Powered',
+    name: 'AI Image Generator & Editor',
+    desc: 'Generate stunning images from text prompts using Stable Diffusion & DALL-E. Built-in editor for inpainting, outpainting & style transfer.',
+    tech: ['React', 'Stable Diffusion API', 'DALL-E 3', 'Node.js', 'AWS S3'],
+    features: [
+      'Text-to-image with multiple AI models (SD, DALL-E 3)',
+      'Inpainting: edit specific regions of generated images',
+      'Style transfer: apply artistic styles to photos',
+      'Batch generation with prompt variations',
+      'Image gallery with sharing & download options',
     ],
   },
   {
@@ -118,23 +234,23 @@ export const projects = [
     ],
   },
   {
-    emoji: '🤖',
-    color: 'teal',
-    badge: 'Featured',
-    name: 'AI Content Generator',
-    desc: 'AI-powered content creation tool using ChatGPT API with custom templates, tone controls, and SEO optimization.',
-    tech: ['Next.js', 'ChatGPT API', 'Tailwind', 'PostgreSQL'],
+    emoji: '🎙️',
+    color: 'purple',
+    badge: 'AI-Powered',
+    name: 'Voice AI Assistant',
+    desc: 'Real-time voice assistant using Whisper for speech-to-text and GPT-4 for intelligent responses. Supports multi-language conversations.',
+    tech: ['Next.js', 'Whisper API', 'GPT-4', 'WebSocket', 'ElevenLabs'],
     features: [
-      'GPT-4 powered blog, ad & social media copy generation',
-      'Custom tone controls (formal, casual, persuasive)',
-      'Built-in SEO keyword suggestions & meta generation',
-      'Template library with 30+ content categories',
-      'Usage history, export to PDF/DOCX support',
+      'Real-time speech-to-text with OpenAI Whisper',
+      'Intelligent responses powered by GPT-4 Turbo',
+      'Text-to-speech with natural voice (ElevenLabs)',
+      'Multi-language support (10+ languages)',
+      'Conversation history & voice command shortcuts',
     ],
   },
   {
     emoji: '📊',
-    color: 'purple',
+    color: 'teal',
     badge: 'Completed',
     name: 'CRM Dashboard',
     desc: 'Real-time client management system with role-based access, reporting modules, and automated email workflows.',
@@ -149,7 +265,7 @@ export const projects = [
   },
   {
     emoji: '🏥',
-    color: 'teal',
+    color: 'coral',
     badge: 'Completed',
     name: 'Hospital Management System',
     desc: 'Comprehensive HMS covering patient records, appointment scheduling, billing, lab reports, and doctor management.',
@@ -164,7 +280,7 @@ export const projects = [
   },
   {
     emoji: '🏠',
-    color: 'coral',
+    color: 'purple',
     badge: 'Live',
     name: 'Real Estate Listing Platform',
     desc: 'Property buy/sell/rent portal with advanced search filters, agent profiles, virtual tours, and lead capture.',
@@ -179,7 +295,7 @@ export const projects = [
   },
   {
     emoji: '🎓',
-    color: 'purple',
+    color: 'teal',
     badge: 'Featured',
     name: 'Learning Management System',
     desc: 'Full-stack LMS with course builder, video lessons, quizzes, certificates, and student progress tracking.',
@@ -193,23 +309,8 @@ export const projects = [
     ],
   },
   {
-    emoji: '🍽️',
-    color: 'coral',
-    badge: 'Completed',
-    name: 'Restaurant POS & Ordering',
-    desc: 'Complete restaurant management with table ordering, kitchen display system, billing, and online delivery integration.',
-    tech: ['Laravel', 'Alpine.js', 'MySQL', 'Pusher'],
-    features: [
-      'Digital menu with QR code table ordering system',
-      'Real-time kitchen display screen via WebSockets',
-      'Table reservation & waitlist management',
-      'Split billing, discounts & GST invoice generation',
-      'Online delivery integration with Swiggy/Zomato API',
-    ],
-  },
-  {
     emoji: '💼',
-    color: 'teal',
+    color: 'coral',
     badge: 'Live',
     name: 'Job Board & Recruitment Portal',
     desc: 'End-to-end hiring platform with job listings, applicant tracking, resume parsing, and employer dashboard.',
@@ -222,6 +323,79 @@ export const projects = [
       'Interview scheduler with Google Calendar integration',
     ],
   },
+  {
+    emoji: '🍽️',
+    color: 'purple',
+    badge: 'Completed',
+    name: 'Restaurant POS & Ordering',
+    desc: 'Complete restaurant management with table ordering, kitchen display system, billing, and online delivery integration.',
+    tech: ['Laravel', 'Alpine.js', 'MySQL', 'Pusher'],
+    features: [
+      'Digital menu with QR code table ordering system',
+      'Real-time kitchen display screen via WebSockets',
+      'Table reservation & waitlist management',
+      'Split billing, discounts & GST invoice generation',
+      'Online delivery integration with Swiggy/Zomato API',
+    ],
+  },
+]
+
+export const testimonials = [
+  {
+    name: 'Rajesh Sharma',
+    role: 'CEO, TechVista Solutions',
+    text: 'Mukesh delivered our e-commerce platform ahead of schedule. His understanding of Laravel and AI integration is exceptional. The AI-powered search feature he built increased our conversion rate by 35%.',
+    color: 'coral',
+  },
+  {
+    name: 'Sarah Mitchell',
+    role: 'Product Manager, HealthFirst',
+    text: 'The Hospital Management System Mukesh built transformed our operations. His attention to detail, clean code architecture, and ability to handle complex requirements made him an invaluable partner.',
+    color: 'teal',
+  },
+  {
+    name: 'Amit Patel',
+    role: 'Founder, EduLearn Pro',
+    text: 'Working with Mukesh on our LMS was a game-changer. He brought innovative ideas like AI-powered content suggestions and automated certificate generation. Highly recommended for any tech project.',
+    color: 'purple',
+  },
+  {
+    name: 'Priya Nair',
+    role: 'CTO, PropTech India',
+    text: 'Mukesh built our real estate platform with Google Maps integration and virtual tours. His full-stack expertise and proactive communication made the entire development process smooth and efficient.',
+    color: 'coral',
+  },
+]
+
+export const education = [
+  {
+    year: '2022',
+    degree: 'Bachelor of Computer Applications (BCA)',
+    institution: 'University of Lucknow',
+    desc: 'Focused on software engineering, data structures, algorithms, and web technologies.',
+    color: 'coral',
+  },
+  {
+    year: '2019',
+    degree: 'Higher Secondary (12th - PCM)',
+    institution: 'UP Board',
+    desc: 'Completed with strong foundation in mathematics and computer science.',
+    color: 'teal',
+  },
+]
+
+export const certifications = [
+  { name: 'Meta Front-End Developer', issuer: 'Coursera / Meta', color: 'coral' },
+  { name: 'Laravel Certified Developer', issuer: 'Laravel', color: 'teal' },
+  { name: 'AI for Everyone', issuer: 'Coursera / DeepLearning.AI', color: 'purple' },
+  { name: 'AWS Cloud Practitioner', issuer: 'Amazon Web Services', color: 'coral' },
+]
+
+export const techMarquee = [
+  'Laravel', 'React', 'Next.js', 'Vue.js', 'TypeScript', 'Node.js', 'PHP',
+  'MySQL', 'PostgreSQL', 'Redis', 'MongoDB', 'Tailwind CSS', 'Docker',
+  'OpenAI', 'Claude AI', 'LangChain', 'Supabase', 'Vercel', 'AWS', 'Git',
+  'Prisma', 'GraphQL', 'Stripe', 'GitHub Actions',
 ]
 
 export const contacts = [

@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import TechMarquee from './components/TechMarquee'
 import About from './components/About'
+import Services from './components/Services'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
+import Testimonials from './components/Testimonials'
+import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
   const [backToTopVisible, setBackToTopVisible] = useState(false)
 
-  // Global scroll reveal using IntersectionObserver
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -28,14 +31,12 @@ export default function App() {
     return () => observer.disconnect()
   }, [])
 
-  // Back to top button visibility
   useEffect(() => {
     const handleScroll = () => setBackToTopVisible(window.scrollY > 400)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Parallax floating shapes on mouse/touch move
   useEffect(() => {
     const shapes = document.getElementById('floatingShapes')
     if (!shapes) return
@@ -77,10 +78,14 @@ export default function App() {
 
       <main>
         <Hero />
+        <TechMarquee />
         <About />
+        <Services />
         <Skills />
         <Experience />
         <Projects />
+        <Testimonials />
+        <Education />
         <Contact />
       </main>
 
